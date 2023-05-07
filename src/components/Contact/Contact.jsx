@@ -39,9 +39,13 @@ const UserForm = () => {
       birthdate: data.birthdate,
     };
     let userList = [];
-    const existingUsers = localStorage.getItem("userList");
-    if (existingUsers) {
-      userList = JSON.parse(existingUsers);
+    try {
+      const existingUsers = localStorage.getItem("userList");
+      if (existingUsers) {
+        userList = JSON.parse(existingUsers);
+      }
+    } catch (error) {
+      console.log("Error loading user list from local storage:", error);
     }
   
     // Verificar si el usuario ya existe en la lista
@@ -107,7 +111,6 @@ const UserForm = () => {
           </button>
         </form>
         {message && <span className="alert-message">{message}</span>}
-        <h1 id="welcome-message"></h1>
       </div>
     </div>
   );
