@@ -1,0 +1,8 @@
+.hola {
+    display: flex;
+    justify-content: center;
+}
+
+.text-init{
+    font-family: Arial, sans-serif;
+}
